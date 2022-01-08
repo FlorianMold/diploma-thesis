@@ -1,0 +1,105 @@
+\chapter{Lösungsansätze für die Realisierung}
+
+\section{Technologien}
+Im folgenden Kapitel werden die zur Lösung verwendeten Technologien aufgelistet. Es wird näher auf die einzelnen Technologien eingegangen, warum diese verwendet wurden und welche Probleme dabei auftraten.
+
+\subsection{Laravel}
+Aufgrund eines Vergleiches vieler Entwicklerframeworks für PHP, wie zum Beispiel Yii2, Symfony2, haben wir uns letztendlich für Laravel entschieden. Hinter Laravel steht eine sehr große und wachsende Community. Die Dokumentation ist sehr umfangreich und erklärt alle Funktionalitäten des Frameworks. Auch viele Anleitungen bezüglich der Entwicklung sind im Internet zu finden.
+
+\subsubsection{Migration}
+Migration ist wie eine Versionskontrolle, die es dem Entwicklungsteam erlaubt, das Datenbankschema einfach zu verändern und zu teilen. In Kombination mit dem Laravel-Schema-Builder werden Migrations verwendet, um das Datenbankschema zu entwickeln. Mit der up-Methode in einer Migration-Klasse können neue Spalten zur Datenbank hinzugefügt werden. Durch den Einsatz sogenannter Rollbacks können die Änderungen an der Datenbank auch auf den letzten funktionierenden Stand zurückgesetzt werden. (vgl. \cite{migration})
+
+\subsubsection{Eloquent}
+Eloquent ORM ist standardmäßig in Laravel integriert. Jede Tabelle in der Datenbank hat eine zugehörige Klasse, die dazu verwendet, wird mit der Tabelle zu kommunizieren. Diese Modelle erlauben Datenbankabfragen sowie das Einfügen in die Datenbank und Löschen aus der Datenbank. Von Haus aus verwendet Laravel die Mehrzahl der Klasse als Datenbanktabellenname. Zum Beispiel würde bei einer \glqq Flight\grqq{} -Klasse, die Datenbanktabelle \glqq flights\grqq{} verwendet werden. Auch vermutet Laravel, dass jede Tabelle einen Primärschlüssel namens \glqq id\grqq{} besitzt. (vgl. \cite{eloquent}) 
+
+\subsubsection{Blade-Template}
+Blade ist eine einfache, aber doch sehr umfangreiche Template-Engine für Laravel. Anders wie andere PHP Template-Engines, verbietet Blade nicht das Verwenden von blanken PHP-Code in den HTML-Seiten. Alle Blade-Views werden in PHP-Code kompiliert und gecached, bis sie modifiziert werden.
+
+Zu Beginn legt man ein Master-Template an, da die meisten Webseiten das gleiche Layout für viele Seiten besitzen. Danach legt man Bereiche fest, an denen die Seiten spezifischen Inhalte geladen werden. Bei einer Seite, die das Master-Template erben soll, muss nur der Name dessen angegeben werden und die spezifisch darzustellenden Daten. (vgl. \cite{blade})
+
+\subsubsection[Artisan-CLI]{Artisan-CLI\footnote{Command Line Interface}}
+Artisan ist der Name der in Laravel inkludierten Konsole. Es bietet eine große Anzahl an Kommandos, die sehr hilfreich für das Entwickeln von Anwendungen sind. Zusätzlich zu den bereits vorhandenen Kommandos, kann man auch selbst Befehle definieren. (vgl. \cite{artisan})
+
+\subsubsection[Laravel-Excel]{Laravel-Excel\footnote{http://www.maatwebsite.nl/laravel-excel/docs}}
+Laravel-Excel ist eines von vielen Plugins für Laravel, welches den Programmierer beim Auslesen oder Erstellen von CSV- und Excel-Dateien unterstützt. (vgl. \cite{laravelExcel})
+
+Die Unterstützung verfügt über eine sehr gute Dokumentation, wodurch die Installation und die Verwendung relativ einfach sind. Das Plugin ist kostenlos im Internet verfügbar und kann einfach über den Composer (siehe \ref{technologien:composer}) installiert werden.
+
+In dieser Applikation wird das Plugin verwendet, um die Datenbanksynchronisation durchzuführen.
+
+\subsubsection[Laravel-oci8]{Laravel-oci8\footnote{https://github.com/yajra/laravel-oci8}}
+Standardmäßig besitzt Laravel keinen Treiber, um auf Oracle-Datenbanken zugreifen zu können. Dies wurde bei der Auswahl des Entwicklerframeworks nicht beachtet, allerdings existieren einige Plugins, wie dieses hier, das die Funktionalität nachträglich implementiert. Über den Composer (siehe \ref{technologien:composer}) kann das Plugin einfach installiert werden. 
+
+Die Erweiterung wurde gewählt, da es eine sehr einfache und leicht verständliche Dokumentation bietet. Des Weiteren kann mit dem Plugin auch die Eloquent-ORM-Technologie aus Laravel verwendet werden, was die Datenbankerstellung erheblich erleichterte. Weiters ist es frei erhältlich.
+
+\subsection{Composer}\label{technologien:composer}
+Composer basiert auf PHP und kann als Abhängigskeitsverwalter (Dependency  Manager) bezeichnet werden. Es erlaubt dem Entwickler Bibliotheken zu definieren, von welchen das Projekt abhängt. Außerdem können die Pakete installiert sowie aktualisiert werden. (vgl. \cite{html5})
+
+Das Projektteam hat Composer dazu verwendet, um Laravel und dessen verwendete Erweiterungen zu installieren und aktuell zu halten.
+
+\subsection{Bootstrap}
+\begin{quote}
+\glqq Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.\grqq{} \cite{bootstrap}
+\end{quote}
+Bootstrap ist ein kostenlos erhältliches Framework, das oft im Bereich Website-Design eingesetzt wird. Es umfasst viele vordefinierte Komponenten, welche man gleich einsetzen oder mit etwas Geschick umschreiben kann.
+
+Das Projektteam verwendete Bootstrap zum Erstellen der Oberfläche. Dies kann man an einigen Komponenten erkennen. Doch hauptsächlich wurde es angewandt, da dieses Framework ein 12-teiliges Gridsystem mitbringt und so die Aufteilung auf den einzelnen Seiten besser gelöst werden kann. Durch diesen Einsatz ist die Applikation auch auf verschieden großen Bildschirmen nutzbar.
+
+\subsection[HTML5]{HTML5\footnote{Hypertext Markup Language}}
+\label{technologien:html5}
+Unter HTML versteht man eine auf Text basierende Auszeichnungssprache, mit welcher man die Struktur aufbaut. Dokumente mit HTML-Code sind die Grundlage für die Darstellung der Webseiten im www\footnote{World Wide Web}.
+
+Durch HTML ist es möglich, eine Webseite aufzubauen. Diese Webseite kann viele verschiedene Komponenten beinhalten, wie zum Beispiel: Bilder, Text, Videos, Hyperlinks und vieles mehr. (vgl. \cite{html5})
+
+\subsection[CSS]{CSS\footnote{Cascading Style Sheets}}
+\label{technologien:css}
+CSS wird für HTML- und XML-Dokumente (siehe \ref{technologien:xml}) als Gestaltungs- und Formatierungssprache verwendet. Bei HTML sind bereits einige, vom Browser abhängige, Formatierungen angegeben. Diese können jedoch mithilfe von CSS-Code verändert werden. (vgl. \cite{css})
+
+\subsection{JavaScript}
+\label{technologien:javascript}
+JavaScript wurde ursprünglich als Erweiterung von HTML und CSS entwickelt und eingesetzt. Es dient dazu, dass die Webseite das macht, was der Entwickler auch wirklich möchte. Das bedeutet, dass mit JavaScript die einzelnen Elemente der Oberfläche verändert werden können. (vgl. \cite{javascript})
+
+In dieser Anwendung wurde JavaScript hauptsächlich für das Verändern der Webseiteninhalte verwendet.
+
+\subsubsection{jQuery}
+Die JavaScript-Bibliothek jQuery ist reich an implementierten Features und beeindruckt mit der Arbeitsgeschwindigkeit. Sie unterstützt den Entwickler beim Manipulieren von HTML-Code, beim Animieren und beim Auslösen von Geschehnissen. Überaus praktisch sind die Ajax-Operationen (siehe \ref{technologien:ajax}), denn durch diese können Abfragen usw. im Hintergrund ablaufen. (vgl. \cite{jquery})
+
+In diese Anwendung wurde jQuery eingebunden, da so die Oberfläche nicht immer komplett neu geladen werden musste. Der zweite wichtigere Punkt ist, dass durch die Ajax-Operationen rechenintensivere Operationen im Hintergrund durchgeführt werden können und dennoch die Oberfläche normal verwendet werden kann.
+
+\subsubsection[Ajax]{Ajax\footnote{Asynchronous JavaScript and XML}}
+\label{technologien:ajax}
+Mit Ajax werden im Hintergrund Daten zwischen Browser und Server übertragen. Das bedeutet, dass HTTP-Requests an den Server abgesendet werden können, während eine Webseite angezeigt wird und es muss nicht die ganze Seite neu geladen werden. (vgl. \cite{ajax})
+
+Im Projekt wurde Ajax oftmals verwendet, um Operationen wie Erstellen oder Bearbeiten usw. durchzuführen und danach eine Fehler- oder Erfolgsmeldung erscheinen zu lassen.
+
+\subsection[Oracle-Datenbank XE]{Oracle Datenbank XE\footnote{Express Edition}}
+Die Oracle-Datenbank ist ein relationales Datenbankmanagementsystem des Unternehmens Oracle Corporation. Sie ist eine der vertrauenswürdigsten und meist genutzten relationalen Datenbanken. Das System wird von großen Unternehmen, die Daten über lokale und öffentliche Netzwerke verarbeiten und verwalten, verwendet. (vgl. \cite{oracle})
+
+Das Oracle-Datenbankmanagementsystem kann als Express-Edition (XE) kostenlos genutzt werden. Diese Version ist etwas eingeschränkt, aber für die Entwicklung des Projekts war diese ausreichend. Für Studienzwecke ist die Oracle-Datenbank auf der Herstellerseite frei erhältlich.
+
+Ein Oracle-Datenbanksystem wurde deshalb gewählt, weil die Firma ELK Fertighaus GmbH ausschließlich auf dieses System setzt. Vor der Diplomarbeit bestand nur wenig Kenntnis von Oracle-Datenbanken, weshalb etwas Einarbeitungszeit nötig war. Anfangs traten Probleme bei der Installation der Software auf den Rechnern des Teams auf. 
+
+\subsection[PHP]{PHP\footnote{Hypertext Preprocessor}}
+PHP ist eine weitverbreitete Open-Source-Skriptsprache, welche speziell für die Webentwicklung ausgelegt ist. Des Weiteren kann sie direkt in HTML eingebunden werden. Der Unterschied zu zum Beispiel JavaScript besteht darin, dass der PHP-Code auf dem Server ausgeführt wird. Daraus resultiert, dass der Client nur das Ergebnis erhält und nicht weiß, wie der eigentliche Quelltext aussieht. Der wesentliche Vorteil von PHP besteht darin, dass der Einstieg extrem einfach ist, jedoch trotzdem einen riesigen Funktionsumfang bietet. (vgl. \cite{php})
+
+Die Diplomarbeitspartner haben sich einstimmig für die Verwendung von PHP bei der vorwissenschaftlichen Arbeit entschieden. Die Programmierung und der Einsatz der Programmiersprache war den Mitgliedern aus einigen schulischen Projekten bereits sehr vertraut. Auch findet sich im Internet eine sehr detaillierte Dokumentation und die meisten Problemstellungen wurden bereits in diversen Foren behandelt. Zudem bietet PHP auch eine Reihe sogenannter Frameworks, die die Entwicklung vereinfachen sollen. Die Spanne reicht hier vom Enterprise-Einsatz bis hin zur schnellen Anwendungsentwicklung. Die Programmiersprache kommuniziert hauptsächlich über HTTP, weshalb es die erste Wahl für Webprojekte ist.
+
+\subsection[XML]{XML\footnote{Extensible Markup Language}}
+\label{technologien:xml}
+Diese Technologie dient dem Austausch sowie der Beschreibung von komplexen Datenstrukturen. Es handelt sich um eine Auszeichnungssprache, mit der andere Auszeichungssprachen (HTML) um Informationen erweitert werden können. Der Inhalt einer XML-Datei ist auch für den Menschen les- und interpretierbar. In seinem grundsätzlichen Aufbau ähnelt XML dem HTML-Standard. Allerdings bietet XML die Möglichkeit Elemente, die weitere Elemente oder Attribute beinhalten können, selbst zu definieren. Mit XML wird der Austausch von Daten zwischen verschiedenen Systemen (Unternehmenskommunikation) um ein Vielfaches erleichtert. (vgl. \cite{xml})
+
+Für die Diplomarbeit wird XML verwendet, um die Metadaten in einer Datei zu verpacken, die für das computerunterstützte Buchhaltungssystem der Firma ELK Fertighaus GmbH interpretierbar ist. Die Richtigkeit der Werte in der Datei konnte durch die einfache Lesbarkeit von XML-Tags ohne Probleme überprüft werden.
+\newpage
+\subsection[LATEX]{LATEX\footnote{Lamport TeX}}
+\begin{quote}
+\glqq LaTeX ist ein Textsatzsystem. Bei LaTeX verfasst man ein Eingabedokument in reinem Text in einem Text-Editor. Dabei schreibt man inhaltliche Fließtexte und spezielle LaTeX-Befehle. Daraus wird ein formatiertes Ausgabedokument (beispielsweise PDF) erzeugt.  \cite{latex}
+\end{quote}
+
+Das Projektteam hat Latex gewählt, da so beide Parteien unabhängig voneinander ihr schriftlichen Teil verfassen können. Zum Abschluss der schriftlichen Arbeit müssen nur noch die Dateien in das Hauptdokument eingebunden werden und Latex erstellt die notwendigen Verzeichnisse, wie zum Beispiel das Abbildungsverzeichnis, automatisch für alle Einträge. Bei Latex kann man sich auch auf den Inhalt der Projektarbeit konzentrieren und muss sich nicht mit der aufwendigen Formatierung des Dokuments abmühen, da die Darstellung alleinig das Verarbeitungsprogramm übernimmt. Des Weiteren ist die Technologie ohne Lizenz verwendbar und auch gratis.
+
+\subsection{Cronjob}
+Unter Cronjob versteht man einen unter Linux auszuführenden Dienst, welcher Skripte und Programme automatisch zu einer gewissen Zeit ausführt. Die einzelnen Befehle werden in der crontab-Tabelle gespeichert.
+
+Ein Eintrag in dieser Tabelle besteht aus fünf bis sechs Spalten. Am Beginn steht die Zeitangabe (Minute, Stunde, Tag, Monat, Wochentag), darauf folgt der Benutzername, welcher den Befehl ausführt und am Ende wird der zu kompilierende Befehl angegeben. Unterteilt werden die Spalten durch Leerzeichen oder Tabulatoren. (vgl. \cite{cronjob})
+
+Das Team setzte einen Cronjob ein, um die Datenbanksynchronisation und die Datenbanksicherung durchzuführen. Der Cronjob, den die Anwendung benötigt, wird jede Minute ausgeführt und mittels Laravel der Zeitpunkt zur Durchführung der einzelnen Funktionen bestimmt.usgeführt und mittels Laravel der Zeitpunkt zur Durchführung der einzelnen Funktionen bestimmt.

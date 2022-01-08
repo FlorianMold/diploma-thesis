@@ -1,0 +1,206 @@
+\chapter{Präambel}
+Dieses Dokument beschreibt die Vorgehensweise bei der Diplomarbeit von Florian Mold sowie Michael Vogler und gibt Rückschluss auf die angewandten Techniken/Umsetzungsschritte. Dabei werden unterschiedliche Bereiche wie das Projektumfeld, die Umsetzung sowie andere ähnliche Aufgabenzweige belichtet.
+
+\section{Team}
+Das Projektteam ist für die Durchführung des Projekts hauptverantwortlich.
+Die Parteien, bestehend aus Florian Mold und Michael Vogler, sind sich bereits seit längerem bekannt. Die Beteiligten haben im Vorfeld der Diplomarbeit bereits einige schulische Projekte und Referate erfolgreich abgeschlossen. Die Kommunikation der beiden Diplomarbeitspartner war bei jeder Aufgabe stets in Ordnung, weshalb eine Zusammenarbeit bei der Diplomarbeit im Vorhinein geradezu perfekt erschien. Auch privat verstehen sich beide Parteien sehr gut. Im Projekt vertraut jeder stets auf die Fähigkeiten des anderen.
+
+\section{Auftraggeber}
+Der Auftraggeber ist diejenige Person, die einen Projektauftrag erteilt und diesen bei der Fertigstellung abnimmt.
+Beim Auftraggeber dieser Diplomarbeit handelt es sich um die Firma ELK Fertighaus GmbH. 
+
+\section{Projektbetreuung}
+Als Projektbetreuer versteht man den Betreuungslehrer, der dem Team während der Diplomarbeit für projektrelevante Fragen zur Seite steht.
+Die Betreuung der Diplomarbeit übernahm Dipl. Ing. Alexander Mestl. Dies war auch die erste Diplomarbeit, die er betreute. Es fanden immer wieder Besprechungen statt, die den Betreuer über den aktuellen Stand der Diplomarbeit informierten. Des Weiteren stand er dem Diplomarbeitsteam immer tatkräftig zur Seite und gab Ratschläge, falls ein Problem bei der Realisierung auftrat.
+
+\section{Abteilungsvorstand}
+Der Abteilungsvorstand bestimmt darüber, ob die Diplomarbeit genehmigt wird. Der Abteilungsvorstand, Dipl. Ing Anton Hauleitner stimmte nach dem Ausfüllen des Diplomarbeitsantrags, dem Antrag zu, wodurch die Diplomarbeit als genehmigt galt.
+
+\section{Motivation}
+Die Motivation der Diplomarbeit bestand darin, den Rechnungsaustausch der Lieferanten mit der Buchhaltung der Firma ELK Fertighaus GmbH zu optimieren. Vor der Realisierung der Diplomarbeit war die Rechnungsverwaltung mit einem gewaltigen Mehraufwand verbunden, da viele Lieferanten ihre Rechnungen in Briefform übermittelt haben. Daher bestand großer Bedarf nach einem System, das die Rechnungen automatisch an die computerunterstützte Buchhaltung weiterleiten kann und auch die zugehörige XML-Datei mit den Metadaten erzeugen kann. Dabei war auch wichtig, dass der Lieferant keinerlei komplexe Schritte übernehmen muss, die ihn von der Nutzung abschrecken könnten. Es existiert bereits ein System, das folgende Aufgaben übernehmen kann, allerdings ist dieser sehr teuer in der Anschaffung und Wartung. Diese Diplomarbeit stellt daher eine optimale Lösung, die auf die Anforderung der Firma ELK Fertighaus GmbH perfekt zugeschnitten ist, dar. Beide Parteien, nämlich der Auftraggeber sowie das Projektteam, haben aus der Arbeit einen sehr großen persönlichen Nutzen gezogen.
+
+\section{Ausgangssituation}
+Die Firma ELK Fertighaus GmbH erhält pro Jahr eine sehr große Anzahl an Eingangsrechnungen in Briefform. Allerdings verwendet die Firma eine elektronische Rechnungserfassung. Daher müssen alle Rechnungen händisch eingescannt werden und mit sogenannten Metadaten, wie zum Beispiel mit dem Betrag oder der Lieferantennummer von der Buchhaltung versehen werden. Dies ist ein sehr bedeutsamer Mehraufwand, der mit dieser Diplomarbeit reduziert werden soll. Danach müssen die Rechnungen im PDF-Format und die Metadaten in XML-Form per E-Mail an die automatische Buchhaltung gesendet werden, damit diese die weiterverarbeiten kann. Einige Lieferanten versenden bereits diese E-Mail, jedoch ist dies nur ein kleiner Bruchteil. Nach Abschluss der Diplomarbeit soll jeder Lieferant die Rechnungen elektronisch an die Firma ELK Fertighaus GmbH senden.
+
+\section{Aufgabenstellung}
+Ziel der Diplomarbeit ist, dass sich beim vollständig implementierten System, die Lieferanten mit der Lieferantennummer bei der Plattform registrieren und anschließend warten, bis die Buchhaltung sie freigibt. Danach kann sich der Lieferant anmelden und beginnen, seine Rechnungen im System hochzuladen. Zusätzlich zur Rechnung müssen noch sogenannte Metadaten angegeben werden. Diese beschreiben die Rechnung näher (z.B.: Betrag, Lieferantennummer usw.). Nachdem die Rechnung hochgeladen wurde, erscheint diese auf der Seite der Buchhaltung. Daraufhin kann ein Buchhalter die Rechnung "holen". Dies bedeutet, dass die Rechnung im PDF-Format mitsamt der Metadaten in Form einer XML-Datei per E-Mail an die automatische Rechnungsverwaltung gesendet wird.
+
+\section{Aufgabenteilung}
+Die Aufgaben der einzelnen Rollen im Projekt ergeben sich normalerweise aus der Größe des Teams und der Anwendung.
+
+\subsection{Gesamtaufwand}
+\begin{table}[!h]
+\centering
+\caption{Stundenaufwand}\label{tab:stunden}
+\begin{tabular}{| c | c |}
+\hline
+Name & Gesamtaufwand in Stunden (h) \\
+\hline
+Florian Mold & 177 \\ \hline
+Michael Vogler & 176,5\\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Florian Mold}
+\begin{itemize}
+\item Design der Oberflächen
+\item hat die \glqq Rechnung holen\grqq -Funktion und die \glqq Benachrichtigungs\grqq-Funktion verwirklicht. 
+\item hat den Buchhaltungs- sowie Lieferanten-Login implementiert.
+\item hat das Registrieren für Lieferanten umgesetzt.
+\item hat \glqq Passwort ändern \grqq , \glqq Passwort vergessen\grqq{} realisiert.
+\end{itemize}
+Siehe Florian Molds Stundentafel \ref{tab:stundenaufzeichnung}
+
+\subsection{Michael Vogler}
+\begin{itemize}
+\item hat die Datenbanksynchronisation implementiert
+\item hat die \glqq Rechnung hochladen\grqq -Funktion verwirklicht
+\item hat das Backend realisiert:
+\begin{itemize}
+\item Lieferanten verwalten
+\item Buchhalter verwalten
+\item Passwortkriterien für Buchhalter, Lieferanten und Administrator getrennt bestimmen
+\item Standorte der Firma änderbar
+\item Währungen, welche die Rechnungen beinhalten dürfen, festlegen
+\item Rechnungsarten änderbar
+\item die einzelnen E-Mail Adressen für Rechnungssystem, Administrator- und Buchhaltungsbenachrichtigung eintragbar
+\end{itemize}
+\end{itemize}
+Siehe Michael Voglers Stundentafel \ref{tab:stundenaufzeichnung_michael}
+
+
+
+\section{Anforderungen}
+Die Anforderungen für die Diplomarbeit müssen bereits zu Beginn mit dem Auftraggeber Kunden vereinbart werden. Wenn die genauen Anforderungen des Projekts feststehen, fällt die Realisierung leichter, da die Vorstellung des Kunden nach seinen Wünschen erledigt wird. An den Anforderungen kann man nach Abschluss der Diplomarbeit messen, ob das Endergebnis den Vorstellungen des Kunden entspricht.
+Bei dieser Arbeit wurden die Anforderungen mit Herrn Ferkl genauestens ausgearbeitet und schriftlich festgehalten. Die schriftlichen Aufzeichnungen wurden ihm zusätzlich noch vorgelegt, damit er diese noch extra absegnen kann.
+Eine Anforderung war zum Beispiel die einfache Bedienung der Anwendung. Die Lieferanten sollten sich nicht um die Erstellung der E-Mail für die Buchhaltung kümmern, sondern einfach nur ihre Rechnungen hochladen können. Aus den Anforderungen konnte man danach die Ziele für die Diplomarbeit ableiten, welche in chronologischer Reihenfolge abzuarbeiten sind. Eine weitere Anforderung war, dass sich an die Coporate Identity der Firma ELK Fertighaus gehalten wird (Logos, Farben vorgegeben).
+
+\section{Zielsetzung}
+Die Kommunikation zwischen dem Auftraggeber und dem Auftragnehmer ist für den erfolgreichen Projektabschluss sehr wichtig. Es ist anzuraten, die Erwartungen des Auftraggebers abzustecken, um mögliche Enttäuschungen zu vermeiden. Sind die Ziele vom Projektteam klar definiert, ist es sehr einfach, diese nochmals mit dem Auftraggeber durchzugehen und zu überarbeiten. Die formulierten Ziele sind dem Auftraggeber in Form eines Pflichtenheftes vorzulegen und bei Richtigkeit unterzeichnen zu lassen.
+Die relevanten Ziele zur Umsetzung dieses Projekts sind bei Treffen mit Herrn Ferkl erarbeitet und festgehalten worden. Nach der Ausarbeitung der Ziele hat das Projektteam diese in einem Pflichtenheft niedergeschrieben und Herrn Ferkl zu Unterzeichnung vorgelegt. Alle erfassten Ziele, wie diese mit dem Auftraggeber abgehandelt sowie vereinbart und im Pflichtenheft festgehalten wurden, sehen wie folgt aus:
+
+\subsection{Muss-Ziele}
+\begin{itemize}
+\item Lieferantenplattform 
+
+\begin{itemize}
+\item Der Lieferant kann sich mit seiner Lieferantennummer registrieren
+und wartet bis er vom Administrator freigeschaltet wird. Nach der
+Freischaltung erhält er eine Benachrichtigung per E-Mail. 
+\item Nur freigeschaltete Lieferanten können sich auf der Plattform anmelden. 
+\item Der Lieferant muss angemeldet sein, um Rechnungen hochladen zu können. 
+\item Rechnung hochladen: 
+
+\begin{itemize}
+\item Rechnungen im PDF-Format hochladen 
+\item Beschlagwortung der Rechnungen, vordefinierte Form muss ausgefüllt
+werden. Die Vorgaben für die Beschlagwortung werden von der Firma
+ELK an uns genauestens übergeben. 
+\end{itemize}
+\end{itemize}
+\item Buchhaltungsplattform: 
+
+\begin{itemize}
+\item Es gibt einen gemeinsamen Buchhaltungsbenutzer, wodurch man das Holen
+der Rechnungen nicht für die einzelnen Nutzer mitprotokollieren kann. 
+\item Wenn der Buchhaltungsbenutzer angemeldet ist, kann dieser: 
+
+\begin{itemize}
+\item Rechnungen herunterladen 
+\item Rechnungen einsehen 
+\item Rechnungen löschen 
+\end{itemize}
+\item Pro Rechnung wird eine E-Mail versendet. 
+\item E-Mail: 
+
+\begin{itemize}
+\item Sie enthält die Rechnung als PDF und die Beschlagwortung als XML-Datei,
+welche von Herr Ferkl vorgegeben wird. 
+\item Dies wird durch einen von uns generierten Job erledigt. 
+\end{itemize}
+\end{itemize}
+\item Administratoransicht: 
+
+\begin{itemize}
+\item Der Administrator kann das Intervall festlegen, wann die Passwörter
+geändert werden müssen. 
+
+\begin{itemize}
+\item Das Intervall kann für Lieferanten und Buchhalter getrennt festgelegt
+werden. 
+\end{itemize}
+\item Der Administrator kann die Lieferanten freischalten sowie auch sperren. 
+\item Nur der Administrator kann den Buchhaltungsbenutzer erstellen. 
+\item Der Administrator kann \textbf{\small{}KEINE} Rechnungen holen! 
+\item Der Administrator kann Kriterien für Passwörter festlegen. Wenn Passwortkriterien
+geändert werden, müssen alle Benutzer bei der nächsten Anmeldung ihr
+Passwort ändern.
+\end{itemize}
+\item Loggen: 
+
+\begin{itemize}
+\item Lieferanten: 
+
+\begin{itemize}
+\item Wenn ein Lieferant eine Rechnung hochlädt 
+\item Wenn ein Lieferant einer Rechnung eine Benachrichtigung hinzufügt. 
+\item Ob eine Benachrichtigung hinzugefügt oder eine Rechnung hochgeladen
+wird, wird jeweils in einer eigenen Logdatei mitgeschrieben. 
+\item Ein Eintrag in der Logdatei sieht so aus: {[}Datum{]}-{[}Uhrzeit{]}-{[}Lieferantnummer{]}-{[}Rechnungsnummer{]} 
+\end{itemize}
+\item Buchhaltung: 
+
+\begin{itemize}
+\item Wann und welche Rechnung gelöscht oder geholt wird. 
+\item Beide Fälle, gelöscht oder geholt, werden in einer eigenen Logdatei
+gespeichert. 
+\item Ein Eintrag im Log sieht so aus: {[}Datum{]}-{[}Uhrzeit{]}-{[}Rechnungsnummer{]} 
+\end{itemize}
+\item Lieferant freischalten/sperren: 
+
+\begin{itemize}
+\item Wenn ein Lieferant freigeschaltet oder gesperrt wird. 
+\item Ein Eintrag im Log sieht so aus: {[}Datum{]}-{[}Uhrzeit{]}-{[}Lieferantennummer{]}-{[}freigeschaltet/gesperrt{]} 
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsection{Optionale Ziele}
+\begin{itemize}
+\item Lieferantenplattform: 
+
+\begin{itemize}
+\item Lieferant sieht, welche seiner Rechnungen noch nicht geholt wurden,
+kann aber diese nicht mehr ändern. 
+\item Falls der Lieferant eine fehlerhafte Rechnung hochlädt, kann er die
+Buchhaltung durch Drücken eines Benachrichtungsbuttons informieren. 
+
+\begin{itemize}
+\item Die Benachrichtigung erfolgt via E-Mail. In der E-Mail stehen die
+Rechnungsnummer und eine Beschreibung des Fehlers. 
+\item In der Datenbank wird die Beschreibung des Fehlers zur Rechnung hinzugespeichert. 
+\item Buchhaltungsplattform: Falls eine Beschreibung hinzugefügt wurde,
+wird diese gekennzeichnet und die Buchhaltung kann sich die Beschreibung
+des Fehlers durchlesen.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\subsection{Nicht-Ziele}
+\begin{itemize}
+\item Die bestehende automatische Rechnungsverwaltung der Firma ELK soll
+nicht verändert werden. 
+\item Die Lieferantendatenbank der Firma ELK besteht schon und soll nicht
+verändert werden, sondern nur mit unserer Datenbank synchronisiert
+werden. 
+\item Nach Versenden der E-Mail, welche die Rechnung und die Metadaten enthält,
+ist der Aufgabenbereich unserer Diplomarbeit beendet. 
+\end{itemize}
+
+
+\section{Produkt}
+Das Produkt, welches als erzeugte Ware beziehungsweise Dienstleistung definiert wird, stellt im Fall der Diplomarbeit eine Webseite dar, mit der es möglich sein soll, dass Lieferanten eine Rechnung hochladen und Lieferanten diese anschließend holen können. Das Projekt soll auf allen Plattformen funktionieren.
+
+\section{Danksagung}
+Das Projektteam bedankt sich bei Herrn Professor Wieninger, der im Vorfeld der Diplomarbeit für die Kontaktvermittlung der Diplomarbeitspartner mit dem Vertreter der Firma ELK Fertighaus GmbH, Herrn Ferkl, sorgte. Außerdem geht großer Dank auch an Herrn Ferkl, der diese Diplomarbeit erst möglich machte. Auch half er tatkräftig bei der Realisierung mit, da er Fragen meist sofort und verständlich beantwortete. Für private Treffen opferte er auch seine Freizeit, um noch persönlicher bei der Entwicklung involviert zu sein. Zu guter Letzt möchten wir noch Herrn Professor Mestl bedanken, der diese Diplomarbeit betreute und sich auch immer wieder Zeit nahm um uns bei der Bewerkstelligung zu helfen. Ferner war er auch sehr verständnisvoll, wenn die Ausführung des Projekts nicht optimal lief.
+

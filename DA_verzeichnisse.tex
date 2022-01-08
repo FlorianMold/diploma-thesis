@@ -1,0 +1,63 @@
+%
+% Literatur-, Abbildungs-, Tabellen- und Abkürzungsverzeichnis
+%
+
+
+% Literaturverzeichnis ===>>>> siehe DA.bib
+\nocite{*} %alle Einträge aus DA.bib werden übernommen, auch diese, die nicht im Text vorkommen
+\bibliographystyle{babunsrt} %sortiere Verzeichnis nach Reihenfolge im Text
+\bibliography{DA} %erstelle Verzeichnis
+
+
+
+
+
+% erstellt ein File mit der Liste aller Bilder (Endung: *.lof)
+\listoffigures
+
+
+
+% erstellt ein File mit der Liste aller Tabellen (Endung: *.lot)
+\listoftables
+
+\renewcommand\lstlistlistingname{Quellcodeverzeichnis} 
+\lstlistoflistings 
+
+\chapter{Quellcodeverweise}
+\markboth{Quellcodeverweise}{}
+\begin{bfscript}{Platzhalter}
+
+\item [Login-Methode\label{logincode}] CD "/Rechnungsplattform/app/Controllers/LoginController.php"
+
+\item [Registrier-Methode \label{regiscode}] CD "/Rechnungsplattform/app/Controllers/LoginController.php"
+
+\item [Rechung holen-Methode \label{holencode}] CD "/Rechnungsplattform/app/Controllers/AccountingController.php"
+
+\item [Passwort vergessen-Methode \label{vergessencode}] CD "/Rechnungsplattform/app/Controllers/LoginController.php"
+
+\item [Rechnung hochladen-Methode \label{hochladencode}] CD "/Rechnungsplattform/app/Controllers/SupplierController.php"
+
+\item [Datenbank-Synchronisations-Funktion \label{datenbanksynchronisationcode}] CD "/Rechnungsplattform/app/Console/Commands/SynchronizeDatabase.php"
+
+\item [Datenbank-Synchronisations-Fehlerbehanldungs-Funktion \label{datenbanksynchronisationfehlerbehandlungcode}] CD "/Rechnungsplattform/app/Console/Commands/SynchronizeDatabase.php"
+
+\end{bfscript}
+
+\chapter{Abkürzungsverzeichnis}
+%\thispagestyle{empty}
+\markboth{Abkürzungsverzeichnis}{}
+%
+\begin{bfscript}{Platzhalter}
+% Hier die verwendeten Abkürzungen einfügen !
+\item[XML] Extensible Markup Language
+\item[HTML] Hypertext Markup Language
+\item[PHP] Hypertext Preprocessor
+\item[SQL] Structured Query Language
+\item[PDF] Portable Document Format
+\item[IDE] Integrierte Entwicklungsumgebung
+\item[HTTP] Hyper Text Transfer Protocol
+\item[AJAX] Asynchronous JavaScript and XML
+\item[LATEX] Lamport TeX
+\item[CLI] Command Line Interface
+\end{bfscript}
+%

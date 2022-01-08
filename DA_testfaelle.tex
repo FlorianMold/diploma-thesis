@@ -1,0 +1,105 @@
+\chapter{Testfälle}
+\begin{longtable}[h]{| c | p{3.7cm} | p{3.8cm} | l | l | l | c |}
+\caption{Testfälle}\label{tab:Testfaelle}\\ 
+\toprule
+* & Testfall & Erwartetes Resultat & Ersteller & Tester & Ergebnis \\          
+\midrule
+\endfirsthead
+\caption[]{Testfälle \small(Fortsetzung)}\\
+\toprule
+* & Testfall & Erwartetes Resultat & Ersteller & Tester & Ergebnis \\
+\midrule
+\endhead
+\midrule
+\endfoot 
+\bottomrule
+\endlastfoot 
+\hline
+1 & Registrieren eines neuen Lieferanten mit Testdaten. \textbf{Benutzername:} Testlieferant \textbf{E-Mail:} eigene E-Mail \textbf{Passwort:} Secret!1 \textbf{Lieferantennummer:} 80536 & Lieferanten-Benutzer wird in der Datenbank erstellt. Die Buchhaltung sowie der Lieferant erhalten eine E-Mail, dass der Registriervorgang erfolgreich war. & Mold Florian & Vogler Michael & OK \\ \hline
+
+2 & Ein Eingabefeld beim Registrieren nicht ausgefüllt. z.B.: Benutzername & Entsprechende Fehlermeldung wird angezeigt & Mold Florian  & Vogler Michael & OK \\ \hline
+
+3 & Eingabe eines Passworts, dass nicht den Kriterien oder der Länge entspricht. z.B.: 123 & Eine Fehlermeldung mit den geforderten Passwortkriterien und der vorausgesetzten Länge wird ausgegeben. & Mold Florian & Vogler Michael & OK \\ \hline
+
+4 & Absetzen einer Passwort-Vergessen Anfrage mit einer E-Mail, die in der Plattform enthalten ist. z.B.: v.m.diplomarbeit @gmail.com & Der Tester erhält eine E-Mail, die einen Link zum Zurücksetzen des Passworts beinhaltet. & Mold Florian & Vogler Michael & OK \\ \hline
+
+5 & Link in der E-Mail abrufen. Dann gelangt der Benutzer auf die Passwort-Vergessen Seite. Danach wird ein neues Passwort eingegeben und das Formular abgeschickt & Das Passwort wird in der Datenbank verändert und der Benutzer gelangt zurück zur Login-Seite & Mold Florian & Vogler Michael & OK \\ \hline
+
+6 & Login-Versuch mit folgenden Daten \textbf{E-Mail:} supplier@gmail.com \textbf{Passwort:} secret & Benutzer wird auf die Lieferantenseite weitergeleitet. & Mold Florian & Vogler Michael & OK \\ \hline
+
+7 & Login-Versuch mit folgenden Daten \textbf{E-Mail:} adminmail@gmail.com \textbf{Passwort:} secret & Benutzer wird auf die Administratorseite weitergeleitet. & Mold Florian &  Vogler Michael & OK \\ \hline
+
+8 & Login-Versuch mit folgenden Daten \textbf{E-Mail:} accounting@gmail.com  \textbf{Passwort:} secret & Benutzer wird auf die Buchhaltungsseite weitergeleitet. & Mold Florian &  Vogler Michael & OK \\ \hline
+
+9 & Vergessen eines Eingabefeldes bei einem Login-Versuch. z.B.: Passwortfeld & Dem Benutzer wird eine Fehlermeldung angezeigt, die ihn darauf hinweist alles auszufüllen. & Mold Florian & Vogler Michael & OK \\ \hline
+
+10 & In der Lieferantenansicht einer Rechnung eine Benachrichtigung hinzufügen. & Die Benachrichtigung kann direkt nach dem Absenden betrachtet werden und die Buchhaltung erhaelt eine E-Mail, die die Benachrichtigung aufweist. Weiters wird dem Rechnungseintrag in der Datenbank die Benachrichtigung hinzugefügt. & Mold Florian & Vogler Michael & OK \\ \hline
+
+11 & In der Buchhaltungsansicht eine Rechnung löschen. & Die Rechnung soll nicht mehr angezeigt werden und in der Datenbank beim entsprechenden Eintrag soll der Status auf "deleted" gesetzt sein. Ein Eintrag in der "deleted.log" Datei wird zusaetzlich erstellt. Dem Benutzer wird eine Erfolgsmeldung angezeigt. & Mold Florian &  Vogler Michael & OK \\ \hline
+
+12 & In der Buchhaltungsansicht eine Rechnung "holen". & In der Datenbank wird der Status der Rechnung auf "taken" gesetzt. Desweiteren wird die Rechnung nicht mehr angezeigt und die Rechnung sowie die Metadaten per E-Mail an die computerunterstützte Buchhaltung weitergeleitet. Zusätzlich wird ein Eintrag in der "taken.log" Datei erstellt. & Mold Florian &  Vogler Michael & OK \\ \hline
+
+13 & In der Buchhaltungsansicht alle Rechnungen gleichzeitig verarbeiten. & In der Datenbank wird der Status aller Rechnungen, die keine Benachrichtigung haben auf "taken" gesetzt. Die Rechnungen sollen auch nicht mehr in der Tabelle angezeigt werden und die computerunterstützte Buchhaltung der Firma ELK Fertighaus GmbH erhält die Rechnungen und die Metadaten per E-Mails. Zusätzlich werden Einträge für jede Rechnung in der "taken.log" Datei erstellt. & Mold Florian & Vogler Michael & OK \\ \hline
+
+14 & In der Buchhaltungsansicht alle Rechnungen gleichzeitig verarbeiten. & In der Datenbank wird der Status aller Rechnungen, die keine Benachrichtigung haben auf "taken" gesetzt. Die Rechnungen sollen auch nicht mehr in der Tabelle angezeigt werden und die computerunterstützte Buchhaltung der Firma ELK Fertighaus GmbH erhält die Rechnungen und die Metadaten per E-Mails. Zusätzlich werden Einträge für jede Rechnung in der "taken.log" Datei erstellt. & Mold Florian & Vogler Michael & OK \\ \hline
+
+15 & Passwort ändern beim \textbf{Benutzer:} Testuser \textbf{Passwort:} secret. Das alte Passwort soll falsch eingegeben werden. & Dem Benutzer wird eine Fehlermeldung angezeigt, dass das aktuelle Passwort nicht richtig war. & Mold Florian & Vogler Michael & OK \\ \hline
+
+16 & Passwort ändern beim \textbf{Benutzer:} Testuser \textbf{Passwort:} secret. Neues Passwort entspricht nicht den geforderten Passwortkriterien. & Dem Benutzer wird eine Fehlermeldung mit den vorausgesetzten Passwortkriterien angezeigt. & Mold Florian & Vogler Michael & OK \\ \hline
+
+17 & Passwort ändern beim \textbf{Benutzer:} Testuser \textbf{Passwort:} secret. Passwort soll erfolgreich geändert werden. Dazu das aktuelle Passwort eingeben (secret) und neues Passwort festlegen (Secret!1) & Das Passwort wird in der Datenbank verändert und der Benutzer gelangt zurück zu seiner Hauptseite. & Mold Florian & Vogler Michael & OK \\ \hline
+
+18 & Passwort ändern beim \textbf{Benutzer:} Testuser \textbf{Passwort:} secret. Das beiden neuen Passwörter, die eingegeben wurden, sollen nicht übereinstimmen. & Dem Benutzer wird eine Fehlermeldung angezeigt, dass die beiden Passwörter nicht übereinstimmen. & Mold Florian & Vogler Michael & OK \\ \hline
+
+19 & In der Lieferansicht eine Rechnung hochladen. Dazu eine PDF-Datei in das Feld ziehen und dazu die Metadaten angeben. & Rechnungseintrag mit den Metadaten wird in der Datenbank erstellt, zusätzlich wird die PDF-Datei auf dem Dateisystem abgelegt. Dem Lieferanten wird anschließend die Rechnung in der "Rechnungen-Tabelle" angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+20 & Ein Eingabefeld beim Rechnung-hochladen vergessen. z.B.: Betrag, PDF-Datei & Der Benutzer bekommt eine Fehlermeldung angezeigt, dass alle Felder ausgefüllt werden müssen, bevor der Vorgang abgeschlossen werden kann. & Vogler Michael & Mold Florian & OK \\ \hline
+
+21 & Als Administrator anmelden. & Auf der Startseite des Administratorbereichs werden die bestehenden Daten (Anzahl der Lieferanten, der freigeschalteten Lieferanten, der neuen Lieferanten und der offenen Rechnungen) angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+22 & Die Lieferantenverwaltung aufrufen. & Es werden alle registrierten und freigeschalteten Lieferanten in der dazugehörigen Tabelle angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+23 & Ein Lieferant registriert sich auf der Plattform. & Dieser Lieferant wird in der Lieferantenverwaltung in einer dritten Tabelle angezeigt. Dort werden die Lieferanten nur angezeigt, solange Sie noch nie freigeschaltet wurden. & Vogler Michael & Mold Florian & OK \\ \hline
+
+24 & Auf den grünen Button mit dem Häkchen klicken. & Der Lieferant wird freigeschaltet. Er wird mithilfe einer E-Mail über die Freischaltung benachrichtigt. Ab diesen Zeitpunkt kann er sich auf der Plattform anmelden und Rechnungen hochladen. & Vogler Michael & Mold Florian & OK \\ \hline
+
+25 & Auf den roten Button mit dem Schloss klicken. & Der Lieferant wird gesperrt. Er wird mithilfe einer E-Mail über die Sperrung benachrichtigt und kann sich ab diesen Zeitpunkt nicht mehr auf der Plattform anmelden. & Vogler Michael & Mold Florian & OK \\ \hline
+
+26 & Bei den Lieferanten auf den roten Button mit dem Kreuz klicken. & Man muss das Löschen des Lieferanten bestätigen und dann wird dieser mit einer E-Mail über den Löschvorgang benachrichtigt. Seine Rechnungen bleiben weiter bestehen. & Vogler Michael & Mold Florian & OK \\ \hline
+
+27 & Die Buchhalter-Seite aufrufen. & Die gesperrten und freigeschalteten Buchhalter werden in der richtigen Tabelle angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+28 & Einen Buchhalter erstellen und eines der Felder leer lassen. & Eine rote Box mit einer Fehlermeldung erscheint. & Vogler Michael & Mold Florian & OK \\ \hline
+
+29 & Einen Buchhalter freischalten, sperren oder löschen. & Dieser wird mit einer E-Mail benachrichtigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+30 & Die Passwortkriterien für einen Buchhalter ändern. & Es ist möglich die Passwortkriterien für die Buchhalter, Lieferanten und Administratoren getrennt festzulegen. & Vogler Michael & Mold Florian & OK \\ \hline
+
+31 & Neue Passwortkriterien festlegen. & Beim nächsten Mal anmelden müssen die Benutzer deren Passwort an die neuen Kriterien anpassen. & Vogler Michael & Mold Florian & OK \\ \hline
+
+32 & Das Intervall, in welchem das Passwort geändert werden muss, ändern. & Beim Anmelden wird auf das neue Intervall überprüft. & Vogler Michael & Mold Florian & OK \\ \hline
+
+33 & Standort ändern, dazu auf den blauen Button mit dem Stift klicken. & Es ist nur die Bezeichnung des Standortes änderbar. Die Nummer ist nur lesbar. & Vogler Michael & Mold Florian & OK \\ \hline
+
+34 & Ein Standort anlegen und alle Felder ausfüllen. & Es wird eine Erfolgsnachricht am Beginn der Seite angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+35 & Standort löschen. & Es ist keine Möglichkeit verfügbar, mit welcher ein Standort gelöscht werden kann, da ansonst Daten bei vorhandenen Rechnungen fehlen könnten. & Vogler Michael & Mold Florian & OK \\ \hline
+
+36 & Beim Hinzufügen von einer neuen Währung ein Feld nicht befüllen. & Ein rotes Kästchen mit einer Fehlermeldung erscheint am Beginn der Seite. & Vogler Michael & Mold Florian & OK \\ \hline
+
+37 & Währung ändern. & Nach dem Speichern der geänderten Währungen werden die aktuellen Daten angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+38 & Währung probieren zu Löschen. & Währungen kann man nicht löschen, da diese vielleicht bei vorhandenen Rechnungen gebraucht werden. & Vogler Michael & Mold Florian & OK \\ \hline
+
+39 & Seite der Rechnungsarten aufrufen. & Alle Rechnungsarten werden angezeigt. & Vogler Michael & Mold Florian & OK \\ \hline
+
+40 & Bei den Rechnungsarten wird der ausgeschriebene Name und das dazugehörige Kürzel geändert und alle beiden Felder sind ausgefüllt. & Eine grüne Bestätigungsbenachrichtigung erscheint und die Daten sind aktualisiert. & Vogler Michael & Mold Florian & OK \\ \hline
+
+41 & Eine neue Rechnungsart hinzufügen, aber nicht alle Felder ausfüllen und auf den grünen Button mit dem Plus klickt. & Eine rote Fehlermeldung erscheint am Beginn der Seite. & Vogler Michael & Mold Florian & OK \\ \hline
+
+42 & Die E-Mails für das automatische Rechnungssystem, die Buchhaltungsbenachrichtigungen und die Administratorbenachrichtigungen sind eingetragen. Für eine dieser drei ist keine E-Mail in der Datenbank vorhanden. & Es erscheint über diesem Textfeld eine rote Warnung. & Vogler Michael & Mold Florian & OK \\ \hline
+
+43 & Eine der drei E-Mails ändern und dabei die Textbox leer lassen. & Es erscheint eine rote Fehlermeldung am Anfang der Seite. & Vogler Michael & Mold Florian & OK \\ \hline
+\end{longtable}
+
+\clearpage

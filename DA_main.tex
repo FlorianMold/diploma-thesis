@@ -1,0 +1,299 @@
+% Hauptdokument fuer Diplomarbeit
+% Dank an die Herrn Brunner, Kopetzky und Wurz (2014)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 1.PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% deklariert die Dokumentklasse (einseitig A4 mit 12pkt Schrift)
+%\documentclass[12pt,oneside,a4paper]{twdpa}
+\documentclass[
+fontsize=12pt,
+twoside=false,
+a4paper,
+bibliography=totoc, 		%Literaturverzeichnis ins IV
+listof=totoc,				%Abb. & Tab. verz. ins IV
+toc=bibliographynumbered, 	%Literaturverzeichnis im IV nummerieren
+listof=numbered,			%Abb. & Tab. verz. im IV nummerieren
+]{scrreprt}
+
+%Seitenabstände
+\usepackage[
+a4paper,
+includefoot,
+includehead,
+bottom=1cm, 
+top=0.8cm, 
+left=25mm, 
+right=20mm,
+twoside=false,
+]{geometry}
+
+\setlength{\headsep}{0.5cm} %Kopfzeilenabstand nach unten
+\setlength{\footskip}{0.5cm} %Fußzeilenabstand nach oben
+\setlength{\textheight}{24cm} %Höhe der Texte
+
+\usepackage{titlesec} % Textüberschriften anpassen
+%Abstände der Überschriften
+\titlespacing{\chapter}{0em}{0em}{0em}
+\titlespacing{\section}{0em}{1em}{0em}
+\titlespacing{\subsection}{0em}{1em}{0em}
+\titlespacing{\subsubsection}{0em}{1em}{0em}
+
+%Abstände vor und nach neuen Kapitelüberschriften
+\renewcommand*\chapterheadstartvskip{\vspace*{-1cm}}
+\renewcommand*\chapterheadendvskip{\vspace*{0cm}}
+
+\usepackage{enumitem} 
+% Tabellen über mehrere Seiten
+
+\usepackage{longtable, booktabs}
+% passt die Formatierung an die Gegebenheiten des jeweiligen Landes an
+\usepackage[ngerman]{babel}
+% ermoeglicht die Generierung eines Index mit Hilfe des "\index" Kommandos
+\usepackage{makeidx}
+% Einbindung von .eps Graphiken
+\usepackage{graphicx}
+% bindet "schwimmende" Objekte, wie Tabellen und Bilder, ein
+\usepackage{float}
+% passt eine Bild- und Tabellenüberschrift an (eingerückt, klein und fett)
+\usepackage[small,bf]{caption}
+% ermöglicht das Anpassen des Seitenlayouts (früher "fancyheadings")
+\usepackage{fancyhdr}
+% ermöglicht das Verwenden von Umlauten
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+% ermöglicht das einfügen von EPS (Encapsulated PostScript) Grafiken
+\usepackage{graphicx}
+%ermöglicht das Erstellen des Bibtex-Literaturverzeichnisses
+\usepackage{babelbib}
+\usepackage{url} %ordentliche Ausgabe von URLs
+%um Seitenanzahl in Fußzeile zu erhalten
+\usepackage{totpages}
+%Tabellenspalten mit fixer Größe zentrieren
+\usepackage{array}
+\usepackage{multirow}
+%Quellcode ordentlich anzeigen
+\usepackage{listings}
+%Formatierung des Quellcodes
+\usepackage{xcolor}
+\lstset{language=PHP, basicstyle = \footnotesize, commentstyle = \color{gray},
+    keepspaces = true,
+    aboveskip=1.5em,
+    abovecaptionskip=0.5em,
+    breaklines=true,
+    xleftmargin=20pt,
+    keywordstyle = \bfseries,
+    numbers=left,                   
+    numbersep=5pt,                   
+    numberstyle=\tiny\color{gray},
+    morekeywords={function,return}}
+%Damit Tabellen nicht neu positioniert werden (option 'H')
+\usepackage{float}
+\restylefloat{table}
+%Standardschriftart bei Überschriften
+\setkomafont{disposition}{\rmfamily}
+%rotierte Tabellen
+\usepackage{rotating} 
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[onehalfspacing]{setspace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF Attribute
+%
+\makeatletter
+\newif\ifpdfoutput
+\@ifundefined{pdfoutput}%
+{\let\pdfoutput\@undefined}%
+{\ifcase\pdfoutput
+  \let\pdfoutput\@undefined
+  \else
+  \pdfoutputtrue
+  \fi
+  }%
+\makeatother
+
+%Hyperlinks schwarz
+\usepackage[bookmarks,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\let\docext=\pdfext
+\pdfpagewidth 210mm \pdfpageheight 297mm
+\pdfimageresolution=600 \pdfcompresslevel=1 \pdfinfo{
+    /Author (Name)                                               % <<< =========
+    /Title (Titel der Diplomarbeit)                              % <<< =========
+    /Subject (Diplomarbeit)                                      % <<< =========
+    /Keywords (keywords)                                         % <<< =========
+}
+\pdfcatalog {/PageMode /UseOutlines
+    /URI (http://www.htlkrems.ac.at//)
+    }
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2.EINSTELLUNGEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Indexgenerierung (Prozessoranweisung)
+\makeindex
+
+% setzt den Pfad für Graphiken
+\graphicspath{{figures/}}
+
+\setcounter{tocdepth}{3} 
+\setcounter{secnumdepth}{3} 
+
+% Zähler der die maximale Nummer von "Floatobjekten" am Beginn einer Seite angibt
+\setcounter{topnumber}{2}
+% Redefinition: gibt an, wieviel Platz Floatobjekte (Tabellen, Bilder)
+% am Beginn einer Seite einnehmen dürfen. (80 Prozent)
+\def\topfraction{.8}
+% Zähler der die maximale Nummer von "Floatobjekten" am Ende einer Seite angibt
+\setcounter{bottomnumber}{2}
+% Redefinition: gibt an, wieviel Platz Floatobjekte (Tabellen, Bilder)
+% am Beginn einer Seite einnehmen dürfen. (80 Prozent)
+\def\bottomfraction{.5}
+% maximale Anzahl der Floatobjekte auf einer Seite
+\setcounter{totalnumber}{8}
+% Redefinition: minimaler Prozentsatz einer Seite der Text auf dem Text stehen muß
+\def\textfraction{.2}
+% Redefinition: mimimaler Prozentsatz von Floatobjekten die auf einer Floatseite(Seite,
+% die nur Tabellen, Bilder enthält) sein müssen
+\def\floatpagefraction{.6}
+% Einzug des Absatzes auf 0 pt stellen
+\setlength{\parindent}{0pt}
+% vertikaler Zwischenraum zwischen zwei Absätzen
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+% Teil des "caption" Packages: extra 20pkt links und rechts von einer Beschriftung
+\setlength{\captionmargin}{20pt}
+%Teil des "float" Packages:
+\floatstyle{plain}
+% Name eines neuen "schwebenden" Objekts
+\floatname{example}{Example}
+
+\newfloat{example}{hbtp}{loe}[chapter]
+\floatplacement{figure}{hbtp}
+\floatplacement{table}{htbp}
+
+% transformiert "\dollar" zum Dollarzeichen
+\newcommand{\dollar}{\char36}	
+\newcommand{\source}[1]{\caption*{Quelle: {#1}} }
+
+
+% Skript fur die Abkürzungen
+% neue Umgebung mit einem Argument
+\newenvironment{bfscript}[1] {
+ % Liste
+ \begin{list}
+ % keine Eintragsmarkierung
+ {}
+ {\settowidth{\labelwidth}{\bf #1}
+  % Abstand vom Eintrag zum linken Rand auf die Breite des Labels setzen (0, da kein Label)
+  \setlength{\leftmargin}{\labelwidth}
+  % das Ganze um die Abstand des Label zum Text (auch 0) danach erhöhen
+  \addtolength{\leftmargin}{\labelsep}
+  % Abstand der Absätze innerhalb eines Eintrages
+  \parsep 0.5ex plus 0.2ex minus 0.2ex
+  % Abstand der einzelnen Einträge
+  \itemsep 0.3ex
+  % festlegen des Labels (fett, wenn nötig bis zum Text auffüllen)
+  \renewcommand{\makelabel}[1]{\bf ##1\hfill}}}
+ {\end{list}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3.ABTEILUNGEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Abteilungsregeln / Vorschriften hier eintragen !
+\hyphenation{gleich-zeitig para-meter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 4.ANFANG des DOKUMENTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Titelseite einbinden
+\include{DA_head}
+
+%Römische Seitenzahlen, keine Kopf- und Fußzeile
+\pagenumbering{arabic}
+
+%============================================== %
+% definiert das Aussehen der Kopf und Fußzeilen
+\pagestyle{fancy} %eigener Seitenstil
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\chead{
+\begin{tabular}{| >{\centering\arraybackslash}m{3.3cm} | p{4.5cm} p{8.1cm}|}
+\hline
+  \rule{0pt}{4ex} %vertikaler Abstand
+  \multirow{4}{*}{\includegraphics[width=2.87cm]{figures/krems.pdf}} & 
+  \multicolumn{2}{c|}{\textbf{HÖHERE TECHNISCHE BUNDES - LEHRANSTALT}} \\[-0.1cm]  & \multicolumn{2}{c|}{\textbf{Krems}} \\
+  \cline{2-3} \rule{0pt}{2.8ex} 
+   & Abteilung: & \textbf{Informationstechnologie} \\[-0.1cm]
+    & Ausbildungsschwerpunkt: & \textbf{System- und Informationstechnik}  \\   
+\hline
+\end{tabular}
+} %
+\fancyfoot[R]{Seite \thepage{} von \ref{TotPages}} %Fußzeile Seitenzahl
+\renewcommand*{\chapterpagestyle}{fancy} %auch Kapitelseiten haben
+\renewcommand{\headrulewidth}{0pt} %Linie unter Kopfzeile entfernen
+\setcounter{page}{2} %Pagecounter bei 2 beginnen lassen (wegen Titelblatt)
+%============================================== %
+
+%benennt Quellcodelistings von "Listing" auf "Quellcode" um
+\renewcommand*\lstlistingname{Quellcode} 
+
+%bindet Vorwort, Erklärung und Zusammenfassungen ein
+\include{DA_eidesstattlicheErklaerung}
+\include{DA_gender}
+\include{DA_diplomarbeit}
+\include{DA_diplomaThesis}
+
+%erstellt das Inhaltsverzeichnis
+\tableofcontents
+
+\include{DA_praambl}
+\include{DA_loesungsansaetze}
+\include{DA_entwicklungsumgebung}
+\include{DA_datenbank}
+\include{DA_dokumentation}
+\chapter{Testfälle}
+Nach Fertigstellung der Anwendung wurden von jedem Teammitglied Testfälle für seinen Aufgabenbereich verfasst (siehe \ref{tab:Testfaelle}). Die Testung erfolgte dann vom jeweilig anderen Projektpartner, um mögliche Denkfehler, die bereits beim Entwickeln auftraten und sich auch durch die Erstellung der Tests zogen, zu verhindern. Bei der Anwendung wurden die kritischen Teile der Anwendung genauestens getestet (Login, Rechnung holen, Registrieren, Rechnung hochladen). Die anderen Funktionen wurden aufgrunddessen, dass diese nicht so komplex sind, nur grundlegend getestet. 
+
+\chapter{Ergebnisse \& Ausblick}
+Das Projekt \glqq Webplattform für Rechnungserfassung\grqq{} wurde im Rahmen der Diplomarbeit erfolgreich fertiggestellt.
+
+Das Projekt-Team hat alle MUSS- und OPTIONALEN Ziele erreicht und sogar noch vereinzelte Ziele, die für ein besseres Benutzen der Plattform förderlich sind, realisiert. Trotz Änderungen, die kurz vor dem Fertigstellungs-Termin von Herrn Ferkl angegeben wurden, ist das Projekt abgeschlossen und kann vollständig verwendet werden.
+
+Wenn die Arbeit auf dem Webserver der Firma ELK GmbH lauffähig ist, entlastet sie die Buchhaltung der Firma ELK GmbH und ist so ein voller Erfolg. Falls im Laufe der Benutzung noch etwaige Fehler zum Vorschein kommen, werden diese außerhalb der Diplomarbeit korrigiert und zählen so nicht mehr zur eigentlichen Diplomarbeit. 
+\chapter{Fazit}
+Zusammenfassend hat es dem Projektteam viel Spaß gemacht hat, diese Arbeit zu erstellen und dann umzusetzen. Während des Projektes stieß das Team oftmals an seine Grenzen. Jedoch durch Zusammenhalt und gemeinsame Arbeitsstunden konnte jede Problematik gelöst werden. Interessant war auch die neue Anwendung von dem Framework Laravel, das vom Team zuvor noch nie benutzt wurde. Gott sei Dank verfügt dieses Framework über eine ausführliche Dokumentation, woraus die beiden viel erfahren konnten. Die größten Schwierigkeiten gab es mit der Oracle-Datenbank, denn diese wurde im Unterricht kurz durchgenommen, jedoch konnte diese lange Zeit nicht auf den Computern, auf welchen die Anwendung entwickelt wurde, installiert werden, wodurch das Projekt erst spät startete.
+
+Das Projekt zeigte dem Team auf, dass es schwierig ist, die Zeit gut einzuteilen und dass man größere Puffer bei den Meilenstein-Vereinbarungen einrechnen sollte.
+
+Auch die erstmalige Erfahrung, ein Projekt in Kooperation mit einer Firma abzuwickeln, war sehr interessant und oftmals eine große Umstellung gegenüber einem schulinternen Projekt, denn in der Schule fragte man einfach schnell die Professoren, wie diese es haben möchten. Doch bei Projekten mit einer echten Firma herrscht ein reger E-Mail-Verkehr, in dem alle Fragen gestellt und bestmöglich beantwortet werden.
+
+Alles im allen sind Florian Mold und Michael Vogler sehr zufrieden mit dem Verlauf ihrer Arbeit und konnten viel neues Wissen und neue Erfahrungen sammeln.
+
+%Römische Nummerierung im Inhaltsverzeichnis
+\renewcommand\thechapter{\Roman{chapter}} 
+%Beginnen der Römischen Nummerierung bei I
+\setcounter{chapter}{0} 
+%bindet Literatur-, Abbildungs-, Tabellen- und Abkürzungsverzeichnis ein
+\include{DA_verzeichnisse}
+
+%Beginn des Anhangs
+\begin{appendix}
+\include{DA_pflichtenheft}
+\include{DA_testfaelle}
+\include{DA_zeitaufzeichnung_florian}
+\include{DA_zeitaufzeichnung_michael}
+\include{DA_besprechungsprotokolle}
+\end{appendix} 
+\end{document}
+d{appendix} 
+\end{document}
+ocument}

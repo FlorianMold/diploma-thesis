@@ -1,0 +1,101 @@
+%
+% Titelseite, Abstrakt, Danksagung und Inhaltsverzeichnis
+%
+\begin{titlepage}
+\mbox{\image width 0.35\textwidth {figures/htl.png}}\\
+\hrule
+
+\large
+\begin{center}
+\vfill
+DIPLOMARBEIT\\\vfill
+{\LARGE\bf Titel der Diplomarbeit}
+\\
+[5mm]
+Untertitel
+\\
+\vfill ausgeführt am \\
+\vfill
+\textsc{Technikum Wien}\\
+Fachhochschulstudiengang Elektronik\\
+\vfill
+von\\
+\vfill
+Name des Verfassers\\
+Matr.Nr. 000000\\
+Adresse des Verfassers\\\vfill
+\vfill
+Name des Firmen-Betreuers, Firma\\
+Name des FHS-Betreuers
+\vfill
+\end{center}
+Wien, September 2003 \hfill\hrulefill
+\end{titlepage}
+%
+\pagenumbering{roman}
+\thispagestyle{empty}
+%
+\begin{abstract}
+Hier gehört die englische Kurzfassung herein.
+
+
+
+
+
+
+
+
+
+
+
+\end{abstract}
+%
+\begin{Kurzfassung}
+Hier gehört die deutsche Kurzfassung herein.
+
+
+
+
+
+
+
+
+
+\end{Kurzfassung}
+%
+\thispagestyle{empty}\null\vfil
+\begin{danksagung}
+Hier die Danksagung einfügen
+
+
+
+
+
+
+
+
+
+
+
+\end{danksagung}
+\par\vfil\null
+%
+%
+\tableofcontents
+%
+\chapter*{Abkürzungsverzeichnis}
+%\thispagestyle{empty}
+\markboth{Abkürzungsverzeichnis}{}
+%
+\begin{bfscript}{Platzhalter}
+% Hier die verwendeten Abkürzungen einfügen !
+\item[ABK] Abkürzung
+
+
+
+
+
+\end{bfscript}
+%
+\newpage
+\pagenumbering{arabic}

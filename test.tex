@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{selinput}
+
+\usepackage{longtable, booktabs}
+\usepackage[ngerman]{babel}
+
+\begin{document}
+\vspace*{10cm}
+
+\begin{longtable}{lrcp{2cm}}
+\caption{log}\label{tab:log2}\\ 
+\toprule
+Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4\\             
+\midrule
+\endfirsthead
+\caption[]{log \small(Fortsetzung)}\\
+\toprule
+Spalte 1 & Spalte 2 & Spalte 3 & Spalte 4\\
+\midrule
+\endhead
+\midrule
+\endfoot 
+\bottomrule
+\endlastfoot 
+ Linksbündige Spalte. & Rechtsbündige Spalte &Zentrierte Spalte & Parbox\\
+
+ Kurzer Text. & Kurzer Text. & Kurzer Text. & Kurzer Text.\\
+
+ Text. & Text. & Text. & In diesem Felde nun ein elendslanger text, um
+ Umbrüche innerhalb eines Feldes zu erzeugen.\\
+
+Text. & Text. & Text. & der Befehl $\backslash$vspace*\{\} weiter oben im
+Quellcode hat einen Umbruch vor dieser Zeile bewirkt.\\
+\end{longtable}
+
+\clearpage
+\listoftables
+
+\end{document}
